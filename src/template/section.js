@@ -1,11 +1,21 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import styled from 'styled-components';
 
-const Template = ({ pageContext }) => <div>
+const Container = styled.div`
+    > * {
+        display: block;
+        padding: 20px;
+    }
+`
+
+const Template = ({ pageContext }) => <Container>
     Go somewhere new?
     {
-        pageContext.links.map(x => <Link to={x}>{x}</Link>)
+        pageContext.links.map(x => <Link key={x} to={x}>
+            <img alt={''} src={'https://random.imagecdn.app/500/150'} />
+        </Link>)
     }
-</div>
+</Container>
 
 export default Template;

@@ -15,13 +15,15 @@ exports.createPages = ({
   actions
 }) => {
 
-  const depth = 10;
+  const depth = 15;
 
   actions.createPage({
     path: `/pages`,
     component: sectionComponent,
-    links: (new Array(depth).join(' ').split(' '))
-      .map((_, x) => `/page/${x}`)
+    context: {
+      links: (new Array(depth).join(' ').split(' '))
+        .map((_, x) => `/page/${x}`)
+    }
   })
 
   for (let i = 0; i < depth; i++) {
